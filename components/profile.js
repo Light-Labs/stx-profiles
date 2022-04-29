@@ -3,14 +3,17 @@ export default function Profile({ profile }) {
   return (
     <div className="container">
       <main>
-        <img
-          src={profile.data.img}
-          width="100"
-          style={{ borderRadius: "50%" }}
-        />
-        <h1 className="title">{profile.data.name}</h1>
-        <p className="description">{profile.data.bio}</p>
-        <p className="address">{profile.nameOwner}</p>
+      <h1 className="title">{profile.data.name}</h1>
+        <div className="grid">
+          <img
+            src={profile.data.img}
+            width="100"
+            style={{ borderRadius: "50%" }}
+            className="header-card"
+          />
+          <p className="header-card">{profile.data.bio}</p>
+          <p className="header-card">{profile.nameOwner}</p>
+        </div>
         <div className="grid">
           {profile.data.links.map((l) => {
             return (
@@ -143,6 +146,27 @@ export default function Profile({ profile }) {
         }
 
         .card p {
+          margin: 0;
+          font-size: 1.25rem;
+          line-height: 1.5;
+        }
+
+        .header-card {
+          margin: 1rem;
+          flex-basis: 45%;
+          padding: 1.5rem;
+          text-align: left;
+          color: inherit;
+          text-decoration: none;
+          transition: color 0.15s ease, border-color 0.15s ease;
+        }
+
+        .header-card h3 {
+          margin: 0 0 1rem 0;
+          font-size: 1rem;
+        }
+
+        .header-card p {
           margin: 0;
           font-size: 1.25rem;
           line-height: 1.5;
