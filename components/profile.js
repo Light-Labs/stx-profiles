@@ -4,15 +4,12 @@ export default function Profile({ profile }) {
   console.log(profile.data.links);
   return (
     <div className="container">
+      <div className="img-container">
+        <img src={profile.data.img} width="200" className="header-img" />
+        <img src="mask.png" width="200" className="header-img" />
+      </div>
+
       <main>
-        <div className="img-container">
-          <img
-            src={profile.data.img}
-            width="200"
-            className="header-img"
-          />
-          <img src="mask.png" width="200" className="header-img" />
-        </div>
         <div className="grid">
           <h1 className="title">{profile.data.name}</h1>
           <p className="header-card">{profile.data.bio}</p>
@@ -155,8 +152,9 @@ export default function Profile({ profile }) {
         }
 
         .img-container {
-          position: relative;
-          margin: 1rem;
+          width: 200px;
+          height: 200px;
+          border-radius:5%
           flex-basis: 45%;
           padding: 1.5rem;
           text-align: left;
@@ -165,9 +163,12 @@ export default function Profile({ profile }) {
           transition: color 0.15s ease, border-color 0.15s ease;
         }
         .header-img {
+          margin-top:20px;
+
           position: absolute;
           top: 0;
-          left: 0;
+          left: 50% - 100px;
+          border-radius:5%
         }
 
         .header-card {
