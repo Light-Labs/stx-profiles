@@ -5,24 +5,18 @@ export default function Profile({ profile }) {
   return (
     <div className="container">
       <main>
-        <h1 className="title">{profile.data.name}</h1>
+        <div className="img-container">
+          <img
+            src={profile.data.img}
+            width="100"
+            style={{ borderRadius: "50%", rotate: "-20deg" }}
+            className="header-img"
+          />
+          <img src="mask.png" width="100" className="header-img" />
+        </div>
         <div className="grid">
-          <div className="img-container">
-            <img
-              src={profile.data.img}
-              width="100"
-              style={{ borderRadius: "50%", rotate: "-20deg" }}
-              className="header-img"
-            />
-            <img
-              src="mask.png"
-              width="100"
-              style={{ borderRadius: "50%" }}
-              className="header-img"
-            />
-          </div>
+          <h1 className="title">{profile.data.name}</h1>
           <p className="header-card">{profile.data.bio}</p>
-          <p className="header-card">{profile.nameOwner}</p>
         </div>
         <div className="grid">
           {profile.data.links.map((l) => {
@@ -173,8 +167,8 @@ export default function Profile({ profile }) {
         }
         .header-img {
           position: absolute;
-          top:0;
-          left:0
+          top: 0;
+          left: 0;
         }
 
         .header-card {
