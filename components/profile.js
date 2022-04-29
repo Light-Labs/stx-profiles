@@ -8,10 +8,10 @@ export default function Profile({ profile }) {
         <div className="img-container">
           <img
             src={profile.data.img}
-            width="100"
+            width="200"
             className="header-img"
           />
-          <img src="mask.png" width="100" className="header-img" />
+          <img src="mask.png" width="200" className="header-img" />
         </div>
         <div className="grid">
           <h1 className="title">{profile.data.name}</h1>
