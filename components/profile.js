@@ -9,7 +9,6 @@ export default function Profile({ profile }) {
           <img
             src={profile.data.img}
             width="100"
-            style={{ borderRadius: "50%", rotate: "-20deg" }}
             className="header-img"
           />
           <img src="mask.png" width="100" className="header-img" />
