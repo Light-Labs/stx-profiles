@@ -1,16 +1,26 @@
+import Image from "next/image";
+
 export default function Profile({ profile }) {
   console.log(profile.data.links);
   return (
     <div className="container">
       <main>
-      <h1 className="title">{profile.data.name}</h1>
+        <h1 className="title">{profile.data.name}</h1>
         <div className="grid">
-          <img
-            src={profile.data.img}
-            width="100"
-            style={{ borderRadius: "50%" }}
-            className="header-card"
-          />
+          <div className="img-container">
+            <img
+              src={profile.data.img}
+              width="100"
+              style={{ borderRadius: "50%", rotate: "-20deg" }}
+              className="header-img"
+            />
+            <img
+              src="mask.png"
+              width="100"
+              style={{ borderRadius: "50%" }}
+              className="header-img"
+            />
+          </div>
           <p className="header-card">{profile.data.bio}</p>
           <p className="header-card">{profile.nameOwner}</p>
         </div>
@@ -42,7 +52,7 @@ export default function Profile({ profile }) {
           flex-direction: column;
           justify-content: center;
           align-items: center;
-          background: #cccccc;
+          background: #eeeeee;
           border-radius: 5%;
         }
 
@@ -149,6 +159,22 @@ export default function Profile({ profile }) {
           margin: 0;
           font-size: 1.25rem;
           line-height: 1.5;
+        }
+
+        .img-container {
+          position: relative;
+          margin: 1rem;
+          flex-basis: 45%;
+          padding: 1.5rem;
+          text-align: left;
+          color: inherit;
+          text-decoration: none;
+          transition: color 0.15s ease, border-color 0.15s ease;
+        }
+        .header-img {
+          position: absolute;
+          top:0;
+          left:0
         }
 
         .header-card {
