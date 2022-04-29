@@ -1,5 +1,4 @@
-import Head from 'next/head'
-
+import Head from "next/head";
 
 export default function Home() {
   return (
@@ -10,18 +9,20 @@ export default function Home() {
       </Head>
 
       <main>
-        <h1 className="title">
-          Welcome to NFT Profiles!
-        </h1>
+        <h1 className="title">Welcome to NFT Profiles!</h1>
 
-        <p className="description">
-          We support owl.links
-        </p>
+        <p className="description">We support owl.links</p>
 
         <div className="grid">
           <a href="https://owl.links" className="card">
             <h3>Owl Links &rarr;</h3>
             <p>Find in-depth information about Owl links.</p>
+          </a>
+          <a href="/raja.btc" className="card">
+            <h3>Raja &rarr;</h3>
+          </a>
+          <a href="/jumpoutgirls.btc" className="card">
+            <h3>jumpoutgirls &rarr;</h3>
           </a>
         </div>
       </main>
@@ -182,5 +183,5 @@ export default function Home() {
         }
       `}</style>
     </div>
-  )
+  );
 }
