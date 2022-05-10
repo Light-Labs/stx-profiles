@@ -11,7 +11,7 @@ export default function Home() {
       <main>
         <h1 className="title">Welcome to NFT Profiles!</h1>
 
-        <p className="description">We support owl.links</p>
+        <p className="description">We support owl.links and public Stacks profiles</p>
 
         <div className="grid">
           <a href="https://owl.links" className="card">
@@ -23,6 +23,15 @@ export default function Home() {
           </a>
           <a href="/jumpoutgirls.btc" className="card">
             <h3>jumpoutgirls &rarr;</h3>
+          </a>
+        </div>
+        <div className="grid">
+          <a href="https://docs.stacks.co/build-apps/references/authentication" className="card">
+            <h3>Public Stacks Profiles &rarr;</h3>
+            <p>Find in-depth information about public profiles.</p>
+          </a>
+          <a href="/friedger.id" className="card">
+            <h3>friedger &rarr;</h3>
           </a>
         </div>
       </main>

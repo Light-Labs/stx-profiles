@@ -1,7 +1,6 @@
 import Image from "next/image";
 
 export default function Profile({ profile }) {
-  console.log(profile.data.links);
   return (
     <div className="container">
       <div className="img-container">
@@ -12,16 +11,20 @@ export default function Profile({ profile }) {
       <main>
         <div className="grid">
           <h1 className="title">{profile.data.name}</h1>
-          <p className="header-card">{profile.data.bio}</p>
+          <p className="header-card">{profile.data.description}</p>
         </div>
         <div className="grid">
-          {profile.data.links.map((l) => {
-            return (
-              <a key={l.id} href={l.url} className="card">
-                <h3>{l.title} &rarr;</h3>
-              </a>
-            );
-          })}
+          {profile.data.links &&
+            profile.data.links?.map((l) => {
+              return (
+                <a key={l.id} href={l.url} className="card">
+                  <h3>{l.title} &rarr;</h3>
+                </a>
+              );
+            })}
+        </div>
+        <div>
+          <small>{profile.nameOwner}</small>
         </div>
       </main>
 
@@ -36,7 +39,7 @@ export default function Profile({ profile }) {
         }
 
         main {
-          padding: 5rem 0;
+          padding: 5rem 1rem;
           flex: 1;
           display: flex;
           flex-direction: column;
@@ -164,7 +167,6 @@ export default function Profile({ profile }) {
         }
         .header-img {
           margin-top:20px;
-
           position: absolute;
           top: 0;
           left: 50% - 100px;

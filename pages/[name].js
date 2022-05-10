@@ -11,15 +11,6 @@ export async function getStaticPaths() {
 export async function getStaticProps({ params }) {
   const { name } = params;
   console.log(name);
-  const nameParts = name.split(".");
-  if (
-    nameParts.length !== 2 ||
-    !BNS_NAME.test(nameParts[0]) ||
-    !BNS_NAME.test(nameParts[1])
-  ) {
-    return { notFound: true };
-  }
-
   try {
     const profile = await fetchProfile(name);
     console.log(profile);

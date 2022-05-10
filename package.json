@@ -6,8 +6,9 @@
     "start": "next start"
   },
   "dependencies": {
+    "@stacks/auth": "^4.0.1",
     "@stacks/blockchain-api-client": "3.0.3",
-    "@stacks/transactions": "^4.0.0",
+    "@stacks/transactions": "^4.0.1",
     "next": "latest",
     "react": "17.0.2",
     "react-dom": "17.0.2"
