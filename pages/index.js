@@ -4,29 +4,37 @@ export default function Home() {
   return (
     <div className="container">
       <Head>
-        <title>NFT Profiles</title>
+        <title>Universal NFT Profiles</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
       <main>
-        <h1 className="title">Welcome to NFT Profiles!</h1>
+        <h1 className="title">Welcome to Universal NFT Profiles!</h1>
 
-        <p className="description">We support owl.links and public Stacks profiles</p>
+        <p className="description">
+          We support owl.links, public Stacks profiles and app profiles
+        </p>
 
         <div className="grid">
           <a href="https://owl.links" className="card">
             <h3>Owl Links &rarr;</h3>
             <p>Find in-depth information about Owl links.</p>
           </a>
-          <a href="/raja.btc" className="card">
-            <h3>Raja &rarr;</h3>
-          </a>
-          <a href="/jumpoutgirls.btc" className="card">
-            <h3>jumpoutgirls &rarr;</h3>
-          </a>
+          <div className="card">
+            <a href="/raja.btc">
+              <h3>Raja &rarr;</h3>
+            </a>
+            <a href="/jumpoutgirls.btc">
+              <h3>jumpoutgirls &rarr;</h3>
+            </a>
+          </div>
         </div>
+
         <div className="grid">
-          <a href="https://docs.stacks.co/build-apps/references/authentication" className="card">
+          <a
+            href="https://docs.stacks.co/build-apps/references/authentication"
+            className="card"
+          >
             <h3>Public Stacks Profiles &rarr;</h3>
             <p>Find in-depth information about public profiles.</p>
           </a>

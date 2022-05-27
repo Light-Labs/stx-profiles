@@ -1,0 +1,36 @@
+import { useConnect, useEffect } from "react";
+import { useState } from "react";
+
+export default function NftProfileEditor({ profile }) {
+  const { sign, authenticate } = useConnect();
+  const [stacksUser, setStacksUser] = (useState < UserData) | (null > null);
+
+  useEffect(() => {
+    if (userSession.isSignInPending()) {
+      userSession.handlePendingSignIn().then((userData) => {
+        setStacksUser(userData);
+      });
+    } else if (userSession.isUserSignedIn()) {
+      setStacksUser(userSession.loadUserData());
+    }
+  }, [userSession]);
+
+  const handleLogin = () => {
+    authenticate({
+      appDetails,
+      onFinish: ({ userSession }) => setStacksUser(userSession.loadUserData()),
+    });
+  };
+
+  const registerNft = () => {
+    if (stacksUser) {
+    } else {
+      handleLogin();
+    }
+  };
+  if (profile) {
+    return <button>Update profile</button>;
+  } else {
+    return <button onClick={registerNft}>Register NFT as profile</button>;
+  }
+}

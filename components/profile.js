@@ -1,11 +1,13 @@
 import Image from "next/image";
 
-export default function Profile({ profile }) {
+export default function Profile({ profile, type }) {
+  if (!profile || !profile.data) {
+    return <div className="container">No {type} profile found.</div>;
+  }
   return (
     <div className="container">
       <div className="img-container">
         <img src={profile.data.img} width="200" className="header-img" />
-        <img src="mask.png" width="200" className="header-img" />
       </div>
 
       <main>
@@ -167,10 +169,10 @@ export default function Profile({ profile }) {
         }
         .header-img {
           margin-top:20px;
-          position: absolute;
+          position:relative;
           top: 0;
           left: 50% - 100px;
-          border-radius:5%
+          border-radius:5%;
         }
 
         .header-card {

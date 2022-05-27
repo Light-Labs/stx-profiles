@@ -1,9 +1,9 @@
 import Head from "next/head";
 
-export default function ProfileMeta({ profile }) {
+export default function ProfileMeta({ name }) {
   return (
     <Head>
-      <title>{profile ? profile.data.name : "Profile"}</title>
+      <title>{name || "Profile"}</title>
       <link rel="icon" href="/favicon.ico" />
     </Head>
   );

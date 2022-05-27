@@ -2,14 +2,31 @@ import { useRouter } from "next/router";
 import Profile from "./profile";
 import ProfileMeta from "./profile-meta";
 
-export default function ProfilePage({ profile }) {
+export default function ProfilePage({ profiles }) {
   const { isFallback } = useRouter();
 
+  const name =
+    profiles?.publicProfile?.data?.name ||
+    profiles?.owlProfile?.data?.name ||
+    profiles?.xckAppProfile?.data?.name ||
+    profiles?.nftProfile?.data?.name;
   return (
     <div>
-      <ProfileMeta profile={profile} />
+      <ProfileMeta name={name} />
 
-      <main>{isFallback ? <div>...</div> : <Profile profile={profile} />}</main>
+      <main>
+        {isFallback ? (
+          <div>...</div>
+        ) : (
+          <>
+            <Profile profile={profiles.publicProfile} type="public" />
+            <Profile profile={profiles.owlProfile} type="owl" />
+            <Profile profile={profiles.xckAppProfile} type="xck" />
+            <Profile profile={profiles.gammaProfile} type="gamma" />
+            <Profile profile={profiles.nftProfile} type="nft" />
+          </>
+        )}
+      </main>
 
       <footer>
         <p>This profile was statically generated.</p>
