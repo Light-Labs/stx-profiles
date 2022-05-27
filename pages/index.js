@@ -51,6 +51,14 @@ export default function Home() {
           rel="noopener noreferrer"
         >
           Powered by OpenIntents
+        </a>{" "}
+        -
+        <a
+          href="https://github.com/Light-Labs/stx-profiles"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          github
         </a>
       </footer>
 
