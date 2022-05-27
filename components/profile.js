@@ -6,8 +6,13 @@ export default function Profile({ profile, type }) {
   }
   return (
     <div className="container">
+      <h2>{type} profile</h2>
       <div className="img-container">
-        <img src={profile.data.img} width="200" className="header-img" />
+        <img
+          src={profile.data.img.replace("ipfs://", "https://images.gamma.io/ipfs/")}
+          width="200"
+          className="header-img"
+        />
       </div>
 
       <main>
@@ -33,11 +38,14 @@ export default function Profile({ profile, type }) {
       <style jsx>{`
         .container {
           min-height: 100vh;
+          width: 80%;
           padding: 0 0.5rem;
           display: flex;
           flex-direction: column;
           justify-content: center;
           align-items: center;
+          background: #bebebe;
+          border-radius: 5%;
         }
 
         main {
