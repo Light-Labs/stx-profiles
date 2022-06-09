@@ -1,7 +1,5 @@
-function SelectNFT() {
-    return <>Select here.</>
-}
+import NftProfileEditor from "../components/nft-profile-editor"
 
 export default function ProfileEditor() {
-  return <SelectNFT></SelectNFT>;
+  return <NftProfileEditor />;
 }
