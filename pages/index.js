@@ -63,6 +63,7 @@ export default function Home() {
           >
             <h3>NFT Profiles &rarr;</h3>
             <p>Use an NFT as your profile for an address.</p>
+            <p>Simple editor is available <a href="/profile">here</a></p>
           </a>
           <a href="/SPN4Y5QPGQA8882ZXW90ADC2DHYXMSTN8VAR8C3X" className="card">
             <h3>SPN4Y...R8C3X &rarr;</h3>
