@@ -25,19 +25,33 @@ export default function NFT({ nft, onSelect }) {
   }, [contractAddress, contractName, id, setImage]);
 
   return (
-    <div className="container">
+    <div>
       {id && !isNaN(id) ? (
-        <img className="cell"
+        <img
+          className="cell"
           width={200}
           height={200}
           onClick={() => onSelect({ contractAddress, contractName, id })}
-          src={image && image.image ? image.image.replace("ipfs://", "https://images.gamma.io/ipfs/") : "/stacks.png"}
+          src={
+            image && image.image
+              ? image.image.replace("ipfs://", "https://images.gamma.io/ipfs/")
+              : "/stacks.png"
+          }
         />
       ) : (
         <img width={200} height={200} src="/stacks.png" />
       )}
       <br />
-      {contractName} #{id}
+      {contractName} {id && !isNaN(id) ? `#${id}` : ""}
+      <style jsx global>
+        {`
+          .cell:hover {
+            border-color: black;
+            border-width: 2px;
+            border-style: solid;
+          }
+        `}
+      </style>
     </div>
   );
 }

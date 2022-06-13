@@ -1,7 +1,10 @@
 import { useState, useEffect } from "react";
 import { useConnect } from "@stacks/connect-react";
 import { userSession, appDetails } from "../pages/_app";
-import { OWNED_PROFILES_COMMISSION_CONTRACT, OWNED_PROFILES_CONTRACT } from "../lib/nft-profile-registry";
+import {
+  OWNED_PROFILES_COMMISSION_CONTRACT,
+  OWNED_PROFILES_CONTRACT,
+} from "../lib/nft-profile-registry";
 import {
   bufferCV,
   bufferCVFromString,
@@ -71,6 +74,7 @@ export default function NftProfileEditor({ profile }) {
       )}
       {stacksUser ? (
         <div>
+          <h3 style={{width:"200px"}}>Select NFT to register as your NFT Profile</h3>
           <ListOfNfts
             userAddress={stacksUser.profile.stxAddress.mainnet}
             onSelect={registerNft}

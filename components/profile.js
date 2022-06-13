@@ -2,7 +2,7 @@ import Image from "next/image";
 
 export default function Profile({ profile, type }) {
   if (!profile || !profile.data) {
-    return <div className="container">No {type} profile found.</div>;
+    return <div style={{padding: "10px"}}>No {type} profile found.</div>;
   }
   return (
     <div className="container">

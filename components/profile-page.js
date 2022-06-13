@@ -27,10 +27,6 @@ export default function ProfilePage({ profiles }) {
           </>
         )}
       </main>
-
-      <footer>
-        <p>This profile was statically generated.</p>
-      </footer>
       <style jsx>{`
         .container {
           min-height: 100vh;
