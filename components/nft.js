@@ -29,8 +29,8 @@ export default function NFT({ nft, onSelect }) {
       {id && !isNaN(id) ? (
         <img
           className="cell"
-          width={200}
-          height={200}
+          width={300}
+          height={300}
           onClick={() => onSelect({ contractAddress, contractName, id })}
           src={
             image && image.image
@@ -39,10 +39,12 @@ export default function NFT({ nft, onSelect }) {
           }
         />
       ) : (
-        <img width={200} height={200} src="/stacks.png" />
+        <img width={300} height={300} src="/stacks.png" />
       )}
       <br />
-      {contractName} {id && !isNaN(id) ? `#${id}` : ""}
+      <p style={{ textAlign: "center" }}>
+        {contractName} {id && !isNaN(id) ? `#${id}` : ""}
+      </p>
       <style jsx global>
         {`
           .cell:hover {
