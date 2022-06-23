@@ -68,13 +68,15 @@ export default function NftProfileEditor({ profile }) {
   };
 
   return (
-    <div>
+    <div style={{ paddingBottom: "30px" }}>
       {stacksUser ? null : (
         <button onClick={handleLogin}>Sign-In with Stacks</button>
       )}
       {stacksUser ? (
         <div>
-          <h3 style={{width:"200px"}}>Select NFT to register as your NFT Profile</h3>
+          <h3 style={{ textAlign: "center" }}>
+            Select NFT to register as your NFT Profile
+          </h3>
           <ListOfNfts
             userAddress={stacksUser.profile.stxAddress.mainnet}
             onSelect={registerNft}
