@@ -1,6 +1,21 @@
+import { useEffect, useState } from "react";
 import Head from "next/head";
+import { userSession } from "./_app";
 
 export default function Home() {
+  const [userAddr, setUserAddr] = useState("");
+
+  useEffect(() => {
+    if (userSession.isSignInPending()) {
+      userSession.handlePendingSignIn().then((userData) => {
+        setUserAddr(userData.profile.stxAddress.mainnet);
+      });
+    } else if (userSession.isUserSignedIn()) {
+      let userData = userSession.loadUserData();
+      setUserAddr(userData.profile.stxAddress.mainnet);
+    }
+  }, [userSession]);
+
   return (
     <>
       <Head>
@@ -65,7 +80,7 @@ export default function Home() {
         <a href="/SPN4Y5QPGQA8882ZXW90ADC2DHYXMSTN8VAR8C3X" className="card">
           <h3>SPN4Y...R8C3X &rarr;</h3>
         </a>
-        <a href="/profile" className="card">
+        <a href={`/profile/${userAddr}`} className="card">
           <p>A simple editor for NFT Profiles. &rarr;</p>
         </a>
       </div>
