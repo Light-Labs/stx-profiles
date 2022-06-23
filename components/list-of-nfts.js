@@ -1,19 +1,8 @@
-import { useState, useEffect } from "react";
-import { fetchNFTs } from "../lib/nfts";
+import { useState } from "react";
 import NFT from "./nft";
 
-export default function ListOfNFTs({ userAddress, onSelect }) {
-  const [nfts, setNfts] = useState(null);
+export default function ListOfNFTs({ nfts, onSelect }) {
   const [showCount, setShowCount] = useState(6);
-
-  const fetchAndSetNfts = async (addr) => {
-    const nftList = await fetchNFTs(addr);
-    setNfts(nftList);
-  };
-
-  useEffect(() => {
-    fetchAndSetNfts(userAddress);
-  }, [userAddress]);
 
   const handleLoadMore = () => {
     setShowCount(Math.min(showCount + 6, nfts.length));
