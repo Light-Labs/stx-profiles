@@ -2,7 +2,13 @@ import ProfilePage from "../components/profile-page";
 import { fetchProfiles } from "../lib/profile";
 
 export async function getStaticPaths() {
-  return { paths: [], fallback: true };
+  return {
+    paths: [
+      { params: { user: "friedger.btc" } },
+      { params: { user: "muneeb.id" } },
+    ],
+    fallback: true,
+  };
 }
 
 export async function getStaticProps({ params }) {

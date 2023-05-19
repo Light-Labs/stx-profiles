@@ -12,7 +12,7 @@ export const appConfig = new AppConfig([]);
 export const userSession = new UserSession({ appConfig });
 export const appDetails = {
   name: "STX Profiles ",
-  icon: "https://stx-profiles-theta.vercel.app/stacks.png",
+  icon: "https://stx-profiles.vercel.app/stacks.png",
 };
 
 function MyApp({ Component, pageProps }: AppProps) {
@@ -30,11 +30,11 @@ function MyApp({ Component, pageProps }: AppProps) {
           <Component {...pageProps} />
           <footer>
             <a
-              href="https://openintents.org"
+              href="https://lightlabs.sg"
               target="_blank"
               rel="noopener noreferrer"
             >
-              Powered by OpenIntents
+              Powered by Light Labs
             </a>{" "}
             -{" "}
             <a
