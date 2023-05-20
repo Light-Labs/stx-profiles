@@ -1,20 +1,19 @@
 import { useState } from "react";
 import NFT from "./nft";
 
-export default function ListOfNFTs({ nfts, onSelect }) {
+export default function ListOfNFTs({ nfts }) {
   const [showCount, setShowCount] = useState(6);
 
   const handleLoadMore = () => {
     setShowCount(Math.min(showCount + 6, nfts.length));
   };
-
   return (
     <div style={{ marginBottom: "50px" }}>
       {nfts ? (
         <>
           <div className="nft-list">
             {nfts.slice(0, showCount).map((nft, i) => {
-              return <NFT nft={nft} onSelect={onSelect} key={i} />;
+              return <NFT nft={nft} key={i} />;
             })}
           </div>
           {!!(showCount < nfts.length) && (

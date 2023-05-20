@@ -13,6 +13,7 @@
     "@stacks/network": "6.5.4",
     "@stacks/transactions": "6.5.4",
     "c32check": "2.0.0",
+    "formik": "^2.2.9",
     "jsontokens": "4.0.1",
     "next": "latest",
     "next-auth": "4.22.1",

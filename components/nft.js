@@ -1,11 +1,14 @@
 import { useEffect, useState } from "react";
 import { fetchNFTImageByDetails } from "../lib/nfts";
+import { Field, useFormikContext } from "formik";
 
-export default function NFT({ nft, onSelect }) {
+export default function NFT({ nft, key }) {
   const [image, setImage] = useState(null);
 
+  const { values } = useFormikContext();
   const [contract, assetName] = nft.assetIdentifier.split("::");
   const [contractAddress, contractName] = contract.split(".");
+  const fullQualifiedNftId = `${nft.assetIdentifier}::${nft.value}`;
 
   let id;
   try {
@@ -27,17 +30,29 @@ export default function NFT({ nft, onSelect }) {
   return (
     <div>
       {id && !isNaN(id) ? (
-        <img
-          className="cell"
-          width={300}
-          height={300}
-          onClick={() => onSelect({ contractAddress, contractName, id })}
-          src={
-            image && image.image
-              ? image.image.replace("ipfs://", "https://images.gamma.io/ipfs/")
-              : "/stacks.png"
-          }
-        />
+        <div>
+          <Field
+            id={`checknft-${fullQualifiedNftId}`}
+            type="radio"
+            name="nft"
+            value={fullQualifiedNftId}
+          />
+          <label htmlFor={`checknft-${fullQualifiedNftId}`}>
+            <img
+              className="cell"
+              width={300}
+              height={300}
+              src={
+                image && image.image
+                  ? image.image.replace(
+                      "ipfs://",
+                      "https://images.gamma.io/ipfs/"
+                    )
+                  : "/stacks.png"
+              }
+            />
+          </label>
+        </div>
       ) : (
         <img width={300} height={300} src="/stacks.png" />
       )}
