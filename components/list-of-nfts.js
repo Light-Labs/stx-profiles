@@ -18,7 +18,7 @@ export default function ListOfNFTs({ nfts }) {
           </div>
           {!!(showCount < nfts.length) && (
             <div style={{ textAlign: "center" }}>
-              <button onClick={handleLoadMore}>Load More</button>
+              <button type="button" onClick={handleLoadMore}>Load More</button>
             </div>
           )}
         </>

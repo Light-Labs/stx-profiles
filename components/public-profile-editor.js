@@ -1,7 +1,7 @@
 import { openProfileUpdateRequestPopup } from "@stacks/connect";
 import { Field, Form, Formik } from "formik";
 import { fetchNFTImageByDetails } from "../lib/nfts";
-import { createImageForProfile } from "../lib/profile";
+import { createCAIP20ID as createCAIP19ID, createImageForProfile } from "../lib/profile";
 import ListOfNFTs from "./list-of-nfts";
 
 export const PublicProfileEditor = ({ nftList, profile, username }) => {
@@ -30,7 +30,17 @@ export const PublicProfileEditor = ({ nftList, profile, username }) => {
         id,
       });
 
-      newProfile.image = createImageForProfile(profile, imageData.image);
+      const caip19Id = createCAIP19ID({
+        contractAddress,
+        contractName,
+        assetName,
+        id,
+      });
+      newProfile.image = createImageForProfile(
+        profile,
+        imageData.image,
+        caip19Id
+      );
     }
 
     openProfileUpdateRequestPopup({

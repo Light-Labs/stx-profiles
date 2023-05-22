@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { fetchNFTImageByDetails } from "../lib/nfts";
 import { Field, useFormikContext } from "formik";
 
-export default function NFT({ nft, key }) {
+export default function NFT({ nft }) {
   const [image, setImage] = useState(null);
 
   const { values } = useFormikContext();
