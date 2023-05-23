@@ -1,10 +1,35 @@
-import { openProfileUpdateRequestPopup } from "@stacks/connect";
+import {
+  getStacksProvider,
+  openProfileUpdateRequestPopup,
+} from "@stacks/connect";
 import { Field, Form, Formik } from "formik";
+import { useEffect, useState } from "react";
 import { fetchNFTImageByDetails } from "../lib/nfts";
-import { createCAIP20ID as createCAIP19ID, createImageForProfile } from "../lib/profile";
+import {
+  createCAIP20ID as createCAIP19ID,
+  createImageForProfile,
+} from "../lib/profile";
 import ListOfNFTs from "./list-of-nfts";
 
 export const PublicProfileEditor = ({ nftList, profile, username }) => {
+  const [error, setError] = useState();
+
+  useEffect(() => {
+    const provider = getStacksProvider();
+    if (!provider.profileUpdateRequest) {
+      setError(
+        <p>
+          Your Wallet does not support public profiles. Please use{" "}
+          <a href="https://wallet.hiro.so/wallet/install-web"> Hiro Wallet</a>.
+        </p>
+      );
+    }
+  }, []);
+
+  if (error) {
+    return error;
+  }
+
   const updateProfile = async (values) => {
     const fullyQualifiedNftId = values.nft;
 

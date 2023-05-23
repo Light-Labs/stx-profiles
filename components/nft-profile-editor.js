@@ -32,12 +32,12 @@ export const NftProfileEditor = ({ nftList }) => {
   };
 
   if (nftList.length === 0) {
-    return <>The address does not own any NFTs</>;
+    return <>The address does not own any NFTs to be used as NFT profile.</>;
   }
 
   return (
     <>
-      <h3>Select NFT to register as your Nft profile</h3>
+      <h3>Select NFT to register as your NFT profile</h3>
       <ListOfNFTs nfts={nftList} onSelect={setNft} />
       <button onClick={registerNft}>Register NFT</button>
     </>
